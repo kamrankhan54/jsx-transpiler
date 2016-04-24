@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 export default class App extends Component {
   constructor(){
@@ -11,13 +12,10 @@ export default class App extends Component {
     this.update = this.update.bind(this)
   }
   update(e){
-    let code = e.target.value
+    let code = ReactDOM.findDOMNode(this.refs.jsxcode).value;
     try {
       this.setState({
-        output: babel.transform(code, {
-                    stage: 0,
-                    loose: "all"
-                }).code,
+        output: babel.transform(code, { stage: 0, loose: "all" }).code,
         err: ''
       })
     }
@@ -28,15 +26,14 @@ export default class App extends Component {
     }
   }
   render(){
+   let info = this.state.err === '' ? 'JSX Compiler' : 'Error: ' + this.state.err;
     return (
       <div>
-        <header>&nbsp;{this.state.err}</header>
+        <header>{info}</header>
         <div className="container">
-          <textarea onChange={this.update} defaultValue={this.state.input}>
-          </textarea>
-          <pre>
-            {this.state.output}
-          </pre>
+          <textarea ref="jsxcode" defaultValue={this.state.input}></textarea>
+          <button onClick={this.update} data={this.state.input}>Compile JSX</button>
+          <pre>{this.state.output}</pre>
         </div>
       </div>
     )

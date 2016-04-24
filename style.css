@@ -7,26 +7,45 @@ header {
   display: block;
   height: 10vh;
   overflow: auto;
-  background-color: pink;
+  background-color: black;
   color: red;
-  font-size: 28px;
+  font-size: 20px;
+  padding: 10px;
 }
  .container {
    height: 95vh;
    display: flex;
  }
 
- pre {
-   background-color: #f8f8f8;
- }
+ pre { background-color: #EFF0F1; }
+ textarea { background-color: #3D3D3E; }
+ button { 
+  background-color: #0F5D92;
+  margin: 10px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 15px;
+  color: #FAFAFB;
+  outline: 0;
+}
 
- pre, textarea {
+ textarea {
    width: 50%;
    font-family: monospace;
-   font-size: 28px;
-   margin: 0;
+   font-size: 15px;
+   margin: 10px;
    padding: 10px;
-   color: #222;
+   color: #FAFAFB;
  }
 
- textarea:focus { outline: 0;}
+pre {
+  width: 50%;
+  font-family: monospace;
+  font-size: 15px;
+  margin: 10px;
+  padding: 10px;
+  color: #2222;
+}
+
+ textarea:focus { outline: 0; }
+ 
